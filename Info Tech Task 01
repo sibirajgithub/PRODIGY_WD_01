@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h1>Home</h1>
+        <p>Content for the home section.</p>
+    </section>
+    <section id="about">
+        <h1>About</h1>
+        <p>Content for the about section.</p>
+    </section>
+    <section id="services">
+        <h1>Services</h1>
+        <p>Content for the services section.</p>
+    </section>
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Content for the contact section.</p>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* Basic reset and full height for sections */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding-top: 60px; /* Space for the fixed navbar */
+}
+
+section {
+    padding: 60px;
+    height: 100vh; /* Full viewport height for demonstration */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ff0;
+}
+
+/* Scrolled Navigation Bar Styles */
+.navbar.scrolled {
+    background-color: #555;
+    color: #ff0;
+}
+
+// Function to handle scroll event and change navbar style
+function handleScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
+
+// Event listener for scroll
+window.addEventListener('scroll', handleScroll);
